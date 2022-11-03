@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/style.css' %}">
+    <script src="{% static 'assets/app.js' %}"></script>
+    <title>Url-Sortener</title>
+</head>
+<body>
+    <main>
+        <!-- URL shortener -->
+        <label for="url-shortener">URL shortener</label>
+        <div class="url-shortener">
+            <div class="first-container">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="first-button">Shorten</button>
+                </form>
+            </div>
+            <div class="second_container">
+                <div class="second-input_container">
+                    <h1>"{{ chars }}"</h1>
+                </div>
+                <button class="first-button" onclick="copyText()">Copy</button>
+            </div>
+        </div>
+
+        <!-- Drop a file to get a link -->
+        <label for="file-upload">Drop a file to get a link</label>
+        <div class="file-upload">
+            <div class="first-container">
+                <div class="file-input-container">
+                    <img src="{% static 'assets/attach-file-icon.png' %}" class="first-input-img">
+                    <span class="file-palaceholder">Drop your attachments here</span>
+                    <input type="file" id="" class="first-input-field" style="opacity: 0; position: relative;">
+                </div>
+                <button id="" class="first-button">Shorten</button>
+            </div>
+
+            <div class="second_container">
+                <div class="second-input_container">
+                    <input type="url" id="textbox" class="second-input-field" placeholder="https://sidehustlebootca...">
+                </div>
+                <div class="dual-button">
+                    <button class="first-button" onclick="copyText()">Copy</button>
+                    <button id="" class="second-button">Customize</button>
+                </div>
+            </div>
+        </div> 
+            
+        <!-- URL extraction -->
+        <label for="url-shortener">URL extraction</label>
+        <div class="URL-extraction">
+            <div class="first-container">
+                <div class="first-input-container">
+                    <img src="{% static 'assets/attach-file-icon.png' %}" class="first-input-img">
+                    <input type="url" id="" class="first-input-field" placeholder="Drop your attachments here">
+                </div>
+                <button id="" class="first-button">Shorten</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
